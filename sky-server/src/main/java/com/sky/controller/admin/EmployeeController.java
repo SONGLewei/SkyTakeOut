@@ -78,7 +78,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping
-    @ApiOperation("New employee")
+    @ApiOperation("New employee 新员工")
     public Result save(@RequestBody EmployeeDTO employeeDTO){
         log.info("New employee :{}",employeeDTO);
         System.out.println("当前线程ID："+ Thread.currentThread().getId());
@@ -87,11 +87,25 @@ public class EmployeeController {
     }
 
     @GetMapping("/page")
-    @ApiOperation("Employee分页查询")
+    @ApiOperation("Pagination query 员工分页查询")
     public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO){
         log.info("员工分页查询，参数为{}",employeePageQueryDTO);
         PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
         return Result.success(pageResult);
+    }
+
+    /**
+     * Start or Close employee's account 禁止/启用账号
+     * @param status
+     * @param id
+     * @return
+     */
+    @PostMapping ("/status/{status}")
+    @ApiOperation("Start or Close employee's account 禁止/启用账号")
+    public Result startOrStop(@PathVariable Integer status,Long id){
+        log.info("启用，禁用员工账户:{},{}",status,id);
+        employeeService.startOrStop(status,id);
+        return Result.success();
     }
 
 }
