@@ -22,7 +22,7 @@ public interface CategoryMapper {
     void insert(Category category);
 
     /**
-     * 分页查询 page query d
+     * 分页查询
      * @param categoryPageQueryDTO
      * @return
      */
