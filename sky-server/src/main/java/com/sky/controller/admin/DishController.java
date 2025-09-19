@@ -21,7 +21,7 @@ public class DishController {
     private DishService dishService;
 
     /**
-     * New dish
+     * New dish the chain complete of a developement
      * @param dishDTO
      * @return
      */
