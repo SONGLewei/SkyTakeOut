@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/admin/dish")
 @Api(tags = "interfaces of dishs")
@@ -38,5 +40,13 @@ public class DishController {
         log.info("dishes page query: {}",dishPageQueryDTO);
         PageResult pageResult = dishService.pageQuery(dishPageQueryDTO);
         return Result.success(pageResult);
+    }
+
+    @DeleteMapping
+    @ApiOperation("Delete dishes")
+    public Result delete(@RequestParam List<Long> ids ){
+        log.info("Delete dishes : {}" ,ids);
+        dishService.deleteBatch(ids);
+        return Result.success();
     }
 }
