@@ -29,6 +29,7 @@ public class DishServiceImpl implements DishService {
      * @param dishDTO
      */
     @Transactional
+    @Override
     public void saveWithFlavor(DishDTO dishDTO) {
 
         Dish dish = new Dish();
@@ -47,7 +48,7 @@ public class DishServiceImpl implements DishService {
             flavors.forEach(dishFlavor -> {
                 dishFlavor.setDishId(dishId);
             });
-            dishFlavorMapper.insertBach(flavors);
+            dishFlavorMapper.insertBatch(flavors);
         }
 
     }

@@ -65,9 +65,9 @@ public class AutoFileAspect {
 
                 // reflex to set object
                 setUpdateTime.invoke(entity,now);
-                setCreateUser.invoke(entity,now);
+                setCreateUser.invoke(entity,currentId);
                 setCreateTime.invoke(entity,now);
-                setUpdateUser.invoke(entity,now);
+                setUpdateUser.invoke(entity,currentId);
 
             } catch (Exception e) {
                 throw new RuntimeException(e);
