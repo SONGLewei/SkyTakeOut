@@ -114,4 +114,24 @@ public class DishServiceImpl implements DishService {
 
     }
 
+    /**
+     * search by id
+     * @param id
+     * @return
+     */
+    @Override
+    public DishVO getByIdWithFlavor(Long id) {
+
+        //search dishes by id
+        Dish dish = dishMapper.getById(id);
+        //search dishes id to flavor data
+        List<DishFlavor> dishFlavors = dishFlavorMapper.getByDishId(id);
+        //to VO
+        DishVO dishVO = new DishVO();
+
+        BeanUtils.copyProperties(dish,dishVO);
+        dishVO.setFlavors(dishFlavors);
+        return dishVO;
+    }
+
 }
