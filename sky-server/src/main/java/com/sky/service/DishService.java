@@ -35,4 +35,10 @@ public interface DishService {
      * @return
      */
     DishVO getByIdWithFlavor(Long id);
+
+    /**
+     * update dishes with falvor
+     * @param dishDTO
+     */
+    void updateWithFlavor(DishDTO dishDTO);
 }
