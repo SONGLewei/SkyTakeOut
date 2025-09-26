@@ -54,10 +54,3 @@ The data flow is as follows:
 ```
 Request -> Controller -> Service (Interface) -> ServiceImpl (Implementation) -> Mapper (Interface + simpleSQL) -> Mapper.xml (SQL) -> Database
 ```
-
-## TODO
-- [ ] User-facing Features (Client-side)
-- [ ] Order Management Module
-- [ ] Set Meal / Combo Management Module
-- [ ] Shopping Cart Functionality
-- [ ] Dashboard & Reporting Module
