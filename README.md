@@ -38,6 +38,7 @@ Based on the current progress, the following API endpoints have been developed:
 
 - **Core Framework**: Spring Boot
 - **Persistence Framework**: MyBatis
+- **Cache / In-memory Database**: Redis
 - **Database**: MySQL
 - **API Documentation**: Swagger (OpenAPI 3)
 - **Others**: SLF4J
