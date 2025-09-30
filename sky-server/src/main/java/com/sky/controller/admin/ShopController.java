@@ -8,10 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin/shop")
@@ -33,5 +30,18 @@ public class ShopController {
         log.info("set the status of the shop : {} ", status == 1 ? "营业中" : "打样中");
         redisTemplate.opsForValue().set("SHOP_STATUS",status);
         return Result.success();
+    }
+
+    /**
+     * Get the status of the shop
+     * @return
+     */
+    @GetMapping("/status")
+    @ApiOperation("Get the status of shop")
+    public Result<Integer> getStatus(){
+        Integer status = (Integer) redisTemplate.opsForValue().get("SHOP_STATUS");
+        log.info("Get the status of shop: {}",status==1 ?"营业中" : "打样中" );
+
+        return Result.success(status);
     }
 }
