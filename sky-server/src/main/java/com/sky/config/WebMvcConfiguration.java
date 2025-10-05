@@ -65,6 +65,10 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     }
 
     @Bean
+    /**
+     * 通过knife4j生成接口文档
+     * @return
+     */
     public Docket docket2() {
         log.info("准备生成接口文档...");
         ApiInfo apiInfo = new ApiInfoBuilder()
