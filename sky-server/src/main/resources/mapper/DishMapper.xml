@@ -18,10 +18,10 @@
                 and d.name like concat('%',#{name},'%')
             </if>
             <if test="categoryId!=null">
-                and d.name like concat('%',#{name},'%')
+                and d.category_id like concat('%',#{category_id},'%')
             </if>
             <if test="status!=null">
-                and d.name like concat('%',#{name},'%')
+                and d.status like concat('%',#{status},'%')
             </if>
         </where>
 
